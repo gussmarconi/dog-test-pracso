@@ -1,36 +1,19 @@
 <script>
-	import AuthReset from '../../components/AuthReset.svelte';
-	import { auth } from '../../lib/firebase/firebase.client';
-	import { authHandlers, authStore } from '../../stores/authStore';
-
-	let email;
-	authStore.subscribe((curr) => {
-		console.log('CURR', curr);
-		email = curr?.currentUser?.email;
-	});
+	let toggle = true;
 </script>
 
-{#if $authStore.currentUser}
-	<div>
-		<h1>CURRENT USER: {email}</h1>
-		<AuthReset />
-        <button on:click={authHandlers.logout}>Logout</button>
-
+<div class="flex flex-col ">
+	<div class="flex flex-row justify-center">
+		<button class="btn btn-xl variant-filled mx-1">Nuevos</button>
+		<button class="btn btn-xl variant-filled mx-1">Guardados</button>
 	</div>
-{:else}
-	<div>Loading....</div>
-{/if}
-
-<style>
-	div {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	h1 {
-		text-align: center;
-	}
-</style>
+	<div class="flex items-center justify-center flex-col">
+		<div class="card p-4 mt-6 mx-2">
+			<img src="https://images.dog.ceo/breeds/samoyed/n02111889_91.jpg" alt="Random Dogs">
+		</div>
+		<div class="flex flex-row mt-6">
+			<div><button type="button" class="btn btn-xl variant-filled mx-2">Guardar</button></div>
+			<div><button type="button" class="btn btn-xl variant-filled mx-2">Siguiente</button></div>
+		</div>
+	</div>
+</div>

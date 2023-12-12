@@ -31,7 +31,7 @@
 </script>
 
 <div class="container">
-	<h1>{register ? 'Register' : 'Log in'}</h1>
+	<h2 class="h2 mb-1">{register ? 'Register' : 'Log in'}</h2>
 	<form>
 		<label class="text-black">
 			<input bind:value={email} type="email" placeholder="Email" />
@@ -44,7 +44,7 @@
 				<input bind:value={confirmPassword} type="password" placeholder="Confirm Password" />
 			</label>
 		{/if}
-		<button on:click={handleSubmit}>Submit</button>
+		<button class="btn variant-filled mt-2" on:click={handleSubmit}>Submit</button>
 	</form>
 	{#if register}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -65,7 +65,7 @@
 			}}
 			on:keydown={() => {}}
 		>
-			Don't have an account? <p>Sign Up</p>
+			<button class="my-2 hover:text-blue-500">Don't have an account? <p>Sign Up</p></button>
 		</div>
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
@@ -74,7 +74,7 @@
 			}}
 			on:keydown={() => {}}
 		>
-			Forgot Password?
+			<button class="hover:text-blue-500">Forgot Password?</button>
 		</div>
 	{/if}
 </div>
